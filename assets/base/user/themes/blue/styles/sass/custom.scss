@@ -1,0 +1,195 @@
+
+/* 
+    Created on : 14-Mar-2020, 11:23:49
+    customises the theme properly by overriding the many styles that are external etc
+    Author     : Ed Taaffe
+*/
+.container-fluid{
+ padding-top: 0px;
+}
+
+.container-fluid nav.navbar {
+    background-color: #FAED26;     
+    width: 80px;
+    padding-top: 0px;  
+ }  
+
+
+.container-fluid nav.navbar ul li a {   
+    width: 80px;
+    font-family: "Verdana", sans-serif, "Arimo";
+    background-color: #454550;   /*brown */                      
+
+}
+
+
+.container-fluid main header {
+    height: 70px;
+    background-color: #FAED26;
+    padding-top:-9px;
+    
+}
+.container-fluid main header .navbar.navbar-left li a.new-post-button {
+ background-color:##121111;
+ // #46344E;
+}
+.container-fluid main header .navbar.navbar-left li {
+   margin-top:10px;
+}
+
+.nav {
+    
+    margin-top: 8px;
+}
+
+.container-fluid nav.navbar ul {
+  margin-top: 1px; 
+}
+
+.container-fluid nav.navbar img {
+    max-width: 60px;
+    margin: 5px 0px 5px 0px;
+}
+
+.container-fluid main header .navbar.navbar-left li a.new-post-button {
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 400;
+    display: block;
+    margin: 8px 30px;
+    height: 32px;
+    background-color: #161616;
+    padding: 5px 15px;
+}
+
+
+
+.icon-user, .icon-people, .icon-user-female, .icon-user-follow, .icon-user-following, .icon-user-unfollow, .icon-login, .icon-logout, .icon-emotsmile, .icon-phone, .icon-call-end, .icon-call-in, .icon-call-out, .icon-map, .icon-location-pin, .icon-direction, .icon-directions, .icon-compass, .icon-layers, .icon-menu, .icon-list, .icon-options-vertical, .icon-options, .icon-arrow-down, .icon-arrow-left, .icon-arrow-right, .icon-arrow-up, .icon-arrow-up-circle, .icon-arrow-left-circle, .icon-arrow-right-circle, .icon-arrow-down-circle, .icon-check, .icon-clock, .icon-plus, .icon-minus, .icon-close, .icon-event, .icon-exclamation, .icon-organization, .icon-trophy, .icon-screen-smartphone, .icon-screen-desktop, .icon-plane, .icon-notebook, .icon-mustache, .icon-mouse, .icon-magnet, .icon-energy, .icon-disc, .icon-cursor, .icon-cursor-move, .icon-crop, .icon-chemistry, .icon-speedometer, .icon-shield, .icon-screen-tablet, .icon-magic-wand, .icon-hourglass, .icon-graduation, .icon-ghost, .icon-game-controller, .icon-fire, .icon-eyeglass, .icon-envelope-open, .icon-envelope-letter, .icon-bell, .icon-badge, .icon-anchor, .icon-wallet, .icon-vector, .icon-speech, .icon-puzzle, .icon-printer, .icon-present, .icon-playlist, .icon-pin, .icon-picture, .icon-handbag, .icon-globe-alt, .icon-globe, .icon-folder-alt, .icon-folder, .icon-film, .icon-feed, .icon-drop, .icon-drawer, .icon-docs, .icon-doc, .icon-diamond, .icon-cup, .icon-calculator, .icon-bubbles, .icon-briefcase, .icon-book-open, .icon-basket-loaded, .icon-basket, .icon-bag, .icon-action-undo, .icon-action-redo, .icon-wrench, .icon-umbrella, .icon-trash, .icon-tag, .icon-support, .icon-frame, .icon-size-fullscreen, .icon-size-actual, .icon-shuffle, .icon-share-alt, .icon-share, .icon-rocket, .icon-question, .icon-pie-chart, .icon-pencil, .icon-note, .icon-loop, .icon-home, .icon-grid, .icon-graph, .icon-microphone, .icon-music-tone-alt, .icon-music-tone, .icon-earphones-alt, .icon-earphones, .icon-equalizer, .icon-like, .icon-dislike, .icon-control-start, .icon-control-rewind, .icon-control-play, .icon-control-pause, .icon-control-forward, .icon-control-end, .icon-volume-1, .icon-volume-2, .icon-volume-off, .icon-calendar, .icon-bulb, .icon-chart, .icon-ban, .icon-bubble, .icon-camrecorder, .icon-camera, .icon-cloud-download, .icon-cloud-upload, .icon-envelope, .icon-eye, .icon-flag, .icon-heart, .icon-info, .icon-key, .icon-link, .icon-lock, .icon-lock-open, .icon-magnifier, .icon-magnifier-add, .icon-magnifier-remove, .icon-paper-clip, .icon-paper-plane, .icon-power, .icon-refresh, .icon-reload, .icon-settings, .icon-star, .icon-symbol-female, .icon-symbol-male, .icon-target, .icon-credit-card, .icon-paypal, .icon-social-tumblr, .icon-social-twitter, .icon-social-facebook, .icon-social-instagram, .icon-social-linkedin, .icon-social-pinterest, .icon-social-github, .icon-social-google, .icon-social-reddit, .icon-social-skype, .icon-social-dribbble, .icon-social-behance, .icon-social-foursqare, .icon-social-soundcloud, .icon-social-spotify, .icon-social-stumbleupon, .icon-social-youtube, .icon-social-dropbox, .icon-social-vkontakte, .icon-social-steam {
+    font-family: 'simple-line-icons';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: .5;
+    font-size:1.3em;
+    color:#46344E;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon-note { color: #ffffff;}
+
+.theme-box {
+    border-radius: 3px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 33px 0 rgba(144, 163, 171, 0.15);
+    box-shadow: 0 0 33px 0 rgba(144, 163, 171, 0.15);
+   // margin: 50px;
+}
+.nav-link {
+       color: #44346e;
+}
+
+
+section.marketing-page > .row .col-xl-3 .marketing-list .panel .panel-body .input-group .form-control, section.marketing-page > .row .col-xl-5 .marketing-list .panel .panel-body .input-group .form-control, section.marketing-page > .row .col-xl-8 .marketing-list .panel .panel-body .input-group .form-control, 
+{
+    padding: 15px;
+    height: 60px;
+    border-radius: 0;
+    border: 0;
+    background-color: #96636336;
+
+
+}
+section.chatbot-page > .row .col-xl-3 .chatbot-list .panel .panel-body .input-group .form-control, section.chatbot-page > .row .col-xl-5 .chatbot-list .panel .panel-body .input-group .form-control, section.chatbot-page > .row .col-xl-8 .chatbot-list .panel .panel-body .input-group .form-control {
+    padding: 15px;
+    height: 60px;
+    border-radius: 0;
+    border: 0;
+    background-color: #96636336;
+}
+.input-group>.custom-select:not(:first-child), .input-group>.form-control:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: #96636336;important!
+}
+
+.help{
+	display:none;
+	left:100px;
+	width:300px;
+	height:800px;
+	border-color: gray;
+	border: 2px solid #ccc;
+	background-color:white;
+	padding:8px;
+	float: right;
+	margin: 0 1.5%;
+	width: 40%;
+	color: #a1a8c3;
+    font-size: 12px;
+}
+
+
+section.posts-page .tab-pane > .send-post > .row > .col-xl-4 > .col-xl-12.post-composer .post-body .post-composer-editor .composer, section.posts-page .tab-pane > .row > .col-xl-6 > .col-xl-12.post-composer .post-body .post-composer-editor .composer, section.posts-page .tab-pane > .row > .col-xl-12 > .col-xl-12.post-composer .post-body .post-composer-editor .composer {
+    margin-top: 15px;
+    color: #afb3b7;
+    border: 0 !important;
+    padding-right: 5px;
+    padding-left: 5px;
+    min-height: 300px;
+}
+ 
+ .custom-success {
+    
+    background-color: #b306cc;
+    border-color: #b306cc;
+    font-size: 14px;
+}
+ 
+
+.container-fluid main section.activities-page .container-fluid > .row > .col-xl-12 > .col-xl-12 .published-button {
+    background-color:#b306cc;
+    
+}
+.theme-background-blue {
+    background-color: #b306cc !important;
+}
+
+.     
+.btn-success:hover {
+    color: #fff;
+    background-color: #9D8D8F;
+    border-color: #9D8D8F;
+}
+
+
+.btn-primary {
+  
+    background-color: #44346e;
+}
+
+
+.all-categories-list .btn-primary {
+    margin-right: 15px;
+    padding: 8px 15px;
+    border: 0;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: "Open Sans", sans-serif, Arial, Helvetica;
+    color: #FFFFFF;
+    background-color: #5e9ceb;
+}
+
+
+.btncampaign{
+    color: #fff;
+    background-color: #b306cc;
+    border-color:#b306cc;
+}
+btn-success {
+    color: #fff;
+    background-color: #b306cc;
+    border-color:#b306cc;
+{
+   

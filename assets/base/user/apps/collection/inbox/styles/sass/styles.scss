@@ -1,0 +1,870 @@
+/*******************************
+MIDRUB GLOBAL VARIABLES
+********************************/
+$open-sans: 'Open Sans', sans-serif;
+$nunito-sans: 'Nunito Sans', sans-serif;
+$primary-black: #343a40;
+$primary-green: #01a28b;
+$primary-red: #ea6759;
+$primary-blue: #2e5f9b;
+$primary-yellow: #f7c48c;
+$primary-border-black: rgba(65, 106, 166, 0.1);
+
+/*******************************
+MIDRUB ELEMENTS STYLES
+********************************/
+@mixin content-shadow() {
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 33px 0 rgba(144, 163, 171, 0.15);
+    box-shadow: 0 0 33px 0 rgba(144, 163, 171, 0.15);
+}
+
+@mixin scrollbar() {
+    
+    ::-webkit-scrollbar {
+	width: 10px;
+	background-color: #F5F5F5;
+        margin-right: -10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+	background-color: #DDDDDD;
+	border: 0;
+        margin-right: -10px;
+    }
+
+    ::-webkit-scrollbar-track {
+	-webkit-box-shadow: none;
+	background-color: #fdfdfd;
+        margin-right: -10px;
+    }
+        
+}
+
+@mixin opacity-animations($duration) {
+    -webkit-animation: loadingOpacity $duration;
+    animation: loadingOpacity $duration;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+        
+}
+
+@mixin checkbox-option() {
+    
+    .checkbox-option {
+        width: 100%;
+        text-align: right;
+
+        input[type=checkbox]{
+            display: none;
+        }
+
+        input[type=text] {
+            height: 35px;
+            line-height: 35px;
+            width: 100%;
+            padding: 0 7px;
+            border: 1px solid #c1c7cd;
+            color: #1b2733;
+            margin-top: 2px;
+        }
+
+        label{
+            cursor: pointer;
+            position: relative; 
+            width: 50px;
+            margin-right:15px;
+            margin-top: 20px;
+        }
+
+        label::before{
+            content: '';
+            background-color: #ced8dc;
+            box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            height: 14px;
+            margin-top: -6px;
+            position: absolute;
+            opacity: 0.3;
+            transition: all 0.4s ease-in-out;
+            width: 50px;
+            margin-left: -45px;
+        }
+
+        label::after {
+            background-color: #c1c7cd;
+            border-radius: 16px;
+            content: '';
+            height: 24px;
+            left: -4px;
+            margin-top: -8px;
+            position: absolute;
+            top: -4px;
+            transition: all 0.3s ease-in-out;
+            width: 24px;
+        }
+
+        input[type=checkbox]:checked + label::after {
+            left: 40px;
+            background-color: $primary-green;
+            box-shadow: none;
+        }
+
+    }
+        
+}
+
+@mixin publish-buttons() {
+    
+    .btn-success{
+        height: 36px;
+        line-height: 20px;
+        background-color: #6086bf;
+        border-color: #6086bf;
+        font-size: 14px;
+        font-family: $open-sans;
+        
+        i {
+            margin-right: 5px;
+        }
+
+        &:nth-child(2) {
+            border-left: 1px solid #42659a !important;
+            width: 40px;
+            
+            span {
+                margin-left: -5px;
+            }
+            
+        }
+
+    }
+
+    .btn-success:hover{
+        opacity: 0.8;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        border: 1px solid #e0e6e8;
+        border-radius: 0;
+        -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+        transform: translate3d(22px, -75px, 0px) !important;
+
+        li {
+            padding: 0 10px;
+            height: 35px;
+            font-size: 14px;
+
+            a {
+                color: #333333;
+                display: block;
+                height: 35px;
+                line-height: 35px;
+                width: 100%;
+
+                &:hover {
+                    text-decoration: none;
+                    border: 0;
+                }
+
+            }
+
+            &:hover {
+                background-color: #f7f7f7;
+            }
+
+        }
+
+    }
+    
+    .loadsend {
+        display: none;
+    }
+        
+}
+
+@mixin dropdown-menu() {
+    
+    ul.dropdown-menu {
+        margin: 0;
+        padding: 0;
+        border: 1px solid #e0e6e8;
+        border-radius: 0;
+        -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+
+        li {
+            padding: 0 10px;
+            height: 45px;
+            font-size: 14px;
+
+            a {
+                color: #333333;
+                display: block;
+                height: 45px;
+                line-height: 45px;
+                width: 100%;
+
+                &:hover {
+                    text-decoration: none;
+                    border: 0;
+                }
+
+            }
+
+            &:hover {
+                background-color: #f7f7f7;
+            }
+
+        }
+
+    }
+        
+}
+
+/*******************************
+INBOX APP STYLES
+********************************/
+section.inbox-page {
+    padding: 30px;
+        
+    hr {
+        margin: 30px 0 5px 0px;
+        border-top: 1px solid $primary-border-black;
+        width: calc(100% + 15px);
+    }
+
+    .pagination {
+        float: right;
+        margin-right: 0;
+    }
+
+    & > div {
+
+        & > div.inbox-page-accounts-list {
+            min-height: 1050px;
+
+            &.col-xl-3 {
+
+                .dropup {
+                    width: calc(100% + 30px);
+                    margin-left: -15px;
+                    @include content-shadow();
+
+                    .btn {
+                        width: 50px;
+                        height: 50px;
+                        text-align: center;
+                        background-color: #ffffff;
+                        color: $primary-black;
+                        border-color: #ffffff;
+                        border-left: 1px solid rgba(65, 106, 166, 0.1);
+
+                        &.dropdown-toggle {
+                            width: calc(100% - 50px);
+                            border-left: 0;
+                            text-align: left;
+
+                            &::after {
+                                display: inline-block;
+                                width: 0;
+                                height: 0;
+                                margin-left: .255em;
+                                vertical-align: .255em;
+                                content: "";
+                                border-top: .3em solid;
+                                border-right: .3em solid transparent;
+                                border-bottom: 0;
+                                border-left: .3em solid transparent;
+                                float: right;
+                                margin-top: 9px;
+                            }
+
+                        }
+
+                    }
+
+                    @include dropdown-menu();
+
+                    .dropdown-menu{
+                        transform: translate3d(0px, 50px, 0px) !important;
+                        width: 100%;
+
+                        li {
+                            height: 45px;
+
+                            a {
+                                height: 45px;
+                                line-height: 45px;
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                & > .row:nth-child(1),
+                & > .row:nth-child(2) {
+                    margin: 0;
+                    height: 60px;
+                    border-bottom: 1px solid $primary-border-black;
+                }
+
+                & > .row:nth-child(1) {
+                    height: 85px;
+                }
+
+                .inbox-accounts-search {
+
+                    .input-group-prepend {
+                        width: 22px;
+
+                        i {
+                            line-height: 60px;
+                            font-size: 20px;
+                            color: #797876;
+                        }
+
+                        @media only screen and (max-width: 1199px) {
+                            line-height: 40px;
+                        }
+
+                    }
+
+                    .inbox-cancel-search-for-accounts {
+                        background-color: transparent;
+                        border: 0;
+                        display: none;
+
+                        .icon-close {
+                            color: #797876;
+                        }
+
+                        &:hover {
+                            cursor: pointer;
+
+                            .icon-close {
+                                opacity: 0.7;
+                            }
+
+                        }
+
+                    }
+
+                    .form-control {
+                        border: 0;
+                        height: 58px;
+                    }
+
+                }
+
+                .inbox-accounts-results {
+                    min-height: 870px;
+                    padding-bottom: 15px;
+                    border-bottom: 1px solid $primary-border-black;
+
+
+                    .no-posts-found {
+                        width: 100%;
+                        line-height: 35px;
+                        height: 35px;
+                        padding: 0 15px;
+                        margin: 15px 0 15px 0;
+                        background: rgba(12,13,14,0.02);
+                        color: $primary-black;
+                    }
+
+                    ul.inbox-accounts {
+                        min-height: 500px;
+                        margin: 15px 0 0 0;
+                        padding: 0;
+
+                        li {
+                            margin: 0;
+                            margin-bottom: 15px;
+                            padding: 15px 15px 0 35px;
+                            border: 1px solid $primary-border-black;
+                            min-height: 78px;
+                            list-style: none;
+
+                            &.inbox-account-details-active {
+                                box-shadow: 0 0 10px 0 rgba(136,152,170,.15);
+                                -webkit-box-shadow: 0 0 10px 0 rgba(136,152,170,.15);                                        
+
+                                .inbox-account-details {
+                                    background-color: $primary-blue;
+                                    border: 1px solid $primary-blue;
+                                    color: #FFFFFF;
+                                }
+
+                            }
+
+                            h4 {
+                                font-size: 14px;
+                                padding: 0;
+                                margin: 0;
+                                color: $primary-black;
+
+                                i {
+                                    margin-left: -28px;
+                                    line-height: 27px;
+                                    background-color: #FFFFFF;
+                                    font-size: 18px;
+                                    border: 3px solid #ffffff;
+                                    position: absolute;
+
+                                    &.icon-user {
+                                        color: #01c0c8;
+                                    }
+
+                                }
+
+                            }
+
+                            h3 {
+                                font-size: 16px;
+                                line-height: 45px;
+                                padding: 0;
+                                margin: 0;
+                                margin-left: -20px;
+
+                                img {
+                                    width: 40px;
+                                    height: 40px;
+                                    border-radius: 50%;
+                                    float: left;
+                                    margin-right: 10px;
+                                }
+
+                            }                                            
+
+                            p {
+                                color: #c0cddc;
+                                font-size: 12px;
+                                margin-bottom: 0;
+                            }
+
+                            .btn-outline-info {
+                                margin-top: 3px;
+                                border: 1px solid #ebedf2;
+                                color: $primary-black;
+                                float: right;
+
+                                &:hover {
+                                    background-color: #FFFFFF;
+                                    border: 1px solid $primary-blue;
+                                    color: #212529;
+                                }
+
+                            } 
+
+                        }
+
+                    }
+
+                }
+
+                ul.insights-accounts {
+
+
+                    li {
+                        min-height: 78px;
+                    }
+
+                }
+
+                @media only screen and (max-width: 1199px) {
+
+                    & {
+                        border-right: 0;
+                        min-height: auto;
+
+                        .input-group {
+                            margin: 0;
+                            width: 100%;
+                            padding: 15px;
+                        }
+
+                        ul.published-posts,
+                        ul.insights-accounts,
+                        nav {
+                            margin: 5px 20px 0 20px;
+                        }
+
+                        hr {
+                            width: 100%;
+                        }
+
+                    }
+
+                }
+
+            }
+            
+        }
+
+    }
+
+}
+
+/*******************************
+MODAL STYLES
+********************************/
+#accounts-manager-popup {
+    
+    .modal-content {
+        min-height: 700px;
+    
+        .modal-header {
+            padding: 0;
+            border: 0;
+
+            nav {
+                width: 100%;
+                margin-bottom: 15px;
+                -webkit-box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
+                box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
+                border-bottom: 1px solid $primary-border-black;
+
+                .nav-tabs {
+                    border-bottom: 0;
+
+                    .nav-link {
+                        color: #999999;
+                        font-size: 16px;
+                        padding: 15px 25px;
+                    }
+
+                    .nav-link.active,
+                    .nav-link:hover{
+                        border: 1px solid transparent;
+                        border-bottom: 1px solid $primary-blue;
+                        color: $primary-blue;
+                    }
+
+                }
+
+                button {
+                    position: absolute;
+                    right: 15px;
+                    top: 15px;
+                }
+
+            }
+
+        }
+        
+        .modal-body {
+            
+            #nav-accounts-manager {
+                
+                & > .row {
+            
+                    .col-xl-3 {
+                        border-right: 1px solid $primary-border-black;
+
+                        .tabs-left {
+                            margin: 0;
+                            padding: 0;
+                            border: 0;
+
+                            li {
+                                width: 100%;
+                                float: none;
+                                min-height: 60px;
+                                margin-right: -1px;
+                                margin-bottom: 15px;
+                                padding: 5px 10px;
+                                border: 1px solid $primary-border-black;
+
+                                a {
+                                    width: 100%;
+                                    display: block;
+                                    border-radius: 4px 0 0 4px;
+                                    margin-right: 0;
+                                    min-height: 45px;
+                                    opacity: 0.7;
+
+                                    div {
+                                        font-size: 16px;
+                                        color: $primary-black;
+                                    }
+
+                                    span {
+                                        font-size: 10px;
+                                        color: #ffffff;
+                                        padding: 1px 5px 0;
+                                        border-radius: 3px;
+                                        display: table;
+                                    }
+
+                                    &:hover,
+                                    &.network-selected {
+                                        border-bottom: 0;
+                                    }
+
+                                }
+
+                                &.network-selected {
+                                    opacity: 1;
+                                    box-shadow: 0 0 10px 0 rgba(136, 152, 170, 0.15);
+                                    -webkit-box-shadow: 0 0 10px 0 rgba(136, 152, 170, 0.15);
+
+                                    a {
+                                        opacity: 1;
+                                    }
+
+                                }                        
+
+                            }
+
+                        }
+
+                    }
+                    
+                    .col-xl-5 {
+                        
+                        & > .row:first-child {
+                            border-bottom: 1px solid $primary-border-black;
+                            margin: 0 -15px 15px 0;
+                        
+                            .accounts-manager-search {
+                                height: 60px;
+                                margin-bottom: 0;
+
+                                .input-group-prepend {
+                                    width: 22px;
+
+                                    i {
+                                        line-height: 60px;
+                                        font-size: 20px;
+                                        color: #797876;
+                                    }
+
+                                }
+
+                                .form-control {
+                                    border: 0;
+                                }
+
+                            }
+                            
+                            .cancel-accounts-manager-search {
+                                background-color: transparent;
+                                border: 0;
+                                float: right;
+                                margin-right: 10px;
+                                display: none;
+
+                                .icon-close {
+                                    color: #797876;
+                                    margin-top: 20px;
+                                    display: block;
+                                }
+
+                                &:hover {
+                                    cursor: pointer;
+
+                                    .icon-close {
+                                        opacity: 0.7;
+                                    }
+
+                                }
+
+                            }
+
+                            .manage-accounts-new-account {
+                                height: 40px;
+                                width: auto;
+                                text-align: center;
+                                line-height: 20px;
+                                font-size: 14px;
+                                background-color: #ffffff;
+                                border: 1px solid $primary-border-black;
+                                color: $primary-black;
+                                float: right;
+                                margin-top: 10px;
+                                box-shadow: inset 0 -3px 0 0 $primary-border-black !important;
+                                border-radius: 3px;
+                                padding: 0 10px;
+
+                                &:hover {
+                                    color: #333333;
+                                    border: 1px solid rgba(65, 106, 166, 0.2);
+                                    box-shadow: inset 0 -3px 0 0 rgba(65, 106, 166, 0.2) !important;
+                                }
+
+                            }
+                            
+                        }
+                        
+                        .col-xl-12.manage-accounts-all-accounts {
+                            padding-right: 0;
+                         
+                            ul {
+                                margin: 0;
+                                padding: 0;
+                                
+                                li {
+                                    list-style: none;
+                                    display: inline-block;
+                                    border-radius: 3px;
+                                    margin-right: 15px;
+                                    margin-bottom: 15px;
+                                    
+                                    a {
+                                        display: block;
+                                        padding: 5px 10px;
+                                        font-size: 15px;
+                                        color: $primary-black;
+                                        -webkit-box-shadow: 0 0 0 1px rgba(61,70,79,.05), 0 1px 3px 0 rgba(61,70,79,.15);
+                                        box-shadow: 0 0 0 1px rgba(61,70,79,.05), 0 1px 3px 0 rgba(61,70,79,.15);
+                                        
+                                        i {
+                                            margin-right: 0;
+                                            margin-left: 3px;
+                                        }
+                                        
+                                        &:hover {
+                                            border-bottom: 0;
+                                            margin-bottom: 0;
+                                        }
+                                        
+                                    }
+                                    
+                                    &:hover {
+                                        background-color: $primary-red;
+
+                                        a {
+                                            color: #FFFFFF;   
+                                        }
+                                    
+                                    }
+                                    
+                                    &.no-accounts-found {
+                                        width: 100%;
+                                        background-color: #FFFFFF;
+                                        border-top: 5px solid $primary-border-black;
+                                        padding: 5px 15px;
+                                        border-radius: 0 3px 3px 0;
+                                        -webkit-box-shadow: 0 0 0 1px rgba(61,70,79,.05), 0 1px 3px 0 rgba(61,70,79,.15);
+                                        box-shadow: 0 0 0 1px rgba(61,70,79,.05), 0 1px 3px 0 rgba(61,70,79,.15);
+                                        
+                                        a {
+                                            color: $primary-black;   
+                                        }                                        
+                                        
+                                    }
+                                    
+                                    
+                                }
+                                
+                                &.accounts-manager-expired-accounts-list {
+                                    width: 100%;
+                                    min-height: 50px;
+                                    margin-bottom: 10px;
+                                    
+                                    li {
+                                        background-color: $primary-red;
+                                        
+                                        &:hover {
+                                            background-color: $primary-blue;
+                                        }
+
+                                        a {
+                                            color: #FFFFFF;   
+                                        }
+                                    
+                                    }
+                                    
+                                }
+                                
+                            }
+                            
+                        }
+                        
+                        .manage-accounts-hidden-content {
+                            margin-bottom: 20px;
+                            padding-right: 0;
+                            display: none;
+                            
+                            .form-control {
+                                border-radius: 3px;
+                            }
+                            
+                            .btn {
+                                background-color: #6086bf;
+                                border-color: #6086bf;
+                                color: #ffffff;
+                                margin-left: 10px;
+                                
+                                &:hover {
+                                    opacity: 0.7;
+                                }
+                                
+                                i {
+                                    margin-right: 0;
+                                }
+                                
+                            }
+                            
+                        }
+                        
+                    }                    
+
+                    .col-xl-4 {
+                        
+                        & > .col-xl-12 {
+                            min-height: 200px;
+                            padding: 5px 15px 30px;
+                            -webkit-box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
+                            box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
+                            
+                            ul {
+                                border-left: 3px solid #e3ecf9;
+                                margin: 15px 15px 0;
+                                padding: 0;
+
+                                li {
+                                    margin: 0;
+                                    padding: 15px 0 15px 15px;
+                                    list-style: none;
+
+                                    h4 {
+                                        font-size: 15px;
+                                        padding: 0;
+                                        margin: 0;
+                                        color: $primary-black;
+                                    }
+
+                                    i.icon-info {
+                                        margin-left: -28px;
+                                        line-height: 27px;
+                                        background-color: #FFFFFF;
+                                        font-size: 18px;
+                                        border: 3px solid #ffffff;
+                                        color: $primary-blue;
+                                        position: absolute;
+                                    }
+
+                                }
+
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+
+        }
+
+    }
+    
+}
